@@ -1,0 +1,3 @@
+The initializer {1} sets arr[0] = 1.
+All other elements default to 0 because no values are provided for them.
+Therefore, output is 10000
