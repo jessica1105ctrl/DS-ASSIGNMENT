@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+int size=0;
+int Array[50];
+
+void count_inversions();
+void create();
+
+int main() {
+    create();
+    count_inversions();
+    
+    return 0;
+}
+
+void create(){
+    cout << "Enter number of elements\n";
+    cin >> size;
+        for(int i = 0; i < size; i++) {
+        cout << "Enter element " << i+1<<"\n";
+        cin >> Array[i];
+    }
+}
+
+void count_inversions(){ int count=0;
+     for(int j=size-1;j>=0;j--){
+       {for (int i=0;i<j;i++)
+            if(Array[i]>Array[j]){
+                count++;
+                
+            }
+        }
+    } 
+cout<<"Number of inversions:"<<count;
+}
