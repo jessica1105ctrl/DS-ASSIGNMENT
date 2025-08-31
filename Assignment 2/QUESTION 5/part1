@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+const int size=4;
+int i,j,Array[size];
+int main() {
+    
+    cout << "Enter diagonal elements(row major)\n";
+for(i=0;i<size;i++)
+{ cin>>Array[i];
+   }
+    std::cout<<"The matrix is:\n";
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            if(i==j)
+           { cout<<Array[i];}
+            else
+            { cout<<"0"; }
+          
+        }  cout<<"\n";
+    }
+}
