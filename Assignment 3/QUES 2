@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    getline(cin, s);
+
+    int n = (int)s.size();
+    char *stk = new char[n];  
+    int top = -1;
+
+    // Push all characters
+    for (int i = 0; i < n; i++) {
+        stk[++top] = s[i];
+    }
+
+  
+    string rev;
+    rev.resize(n);
+    for (int i = 0; i < n; i++) {
+        rev[i] = stk[top--];
+    }
+
+    cout << "Reversed: " << rev << "\n";
+
+    delete[] stk;
+    return 0;
+}
