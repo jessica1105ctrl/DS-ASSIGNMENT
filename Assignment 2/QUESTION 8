@@ -1,0 +1,33 @@
+#include <iostream>
+int size=0;
+int Array[50];
+
+void count_non_duplicates();
+void create();
+
+int main() {
+    create();
+    count_non_duplicates();
+    
+    return 0;
+}
+
+void create(){
+    std::cout << "Enter number of elements\n";
+    std::cin >> size;
+        for(int i = 0; i < size; i++) {
+        std::cout << "Enter element " << i+1<<"\n";
+        std::cin >> Array[i];
+    }
+}
+
+void count_non_duplicates(){ int count=size;
+    for(int i=0;i<size;i++){
+        for(int j=0;j<i;j++){
+            if(Array[i]==Array[j]){
+                count--;
+                break;
+            }
+        }
+    } std::cout<<"Number of Distinct elements:"<<count;
+}
