@@ -1,1 +1,65 @@
+#include <iostream>
+using namespace std;
+
+int size=50;
+int stackArr[50];
+int top = -1;       
+void push(int val) {
+    if (top == size-1) {
+        cout << "Stack Overflow!\n";
+    } else {
+        stackArr[++top] = val;
+        cout << val << " pushed.\n";
+    }
+}
+
+void pop() {
+    if (top == -1) {
+        cout << "Stack Underflow!\n";
+    } else {
+        cout << stackArr[top--] << " popped.\n";
+    }
+}
+
+void peek() {
+    if (top == -1) {
+        cout << "Stack is empty.\n";
+    } else {
+        cout << "Top element: " << stackArr[top] << "\n";
+    }
+}
+
+void display() {
+    if (top == -1) {
+        cout << "Stack is empty.\n";
+    } else {
+        cout << "Stack elements: ";
+        for (int i = top; i >= 0; i--) {
+            cout << stackArr[i] << " ";
+        }
+        cout << "\n";
+    }
+}
+
+int main() {
+    int choice, val;
+    do {
+        cout << "\n1.Push  2.Pop  3.Peek  4.Display  0.Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: cout << "Enter value: "; cin >> val; push(val); break;
+            case 2: pop(); break;
+            case 3: peek(); break;
+            case 4: display(); break;
+            case 0: cout << "Exiting\n"; break;
+            default: cout << "Invalid choice!\n";
+        }
+    } while (choice != 0);
+
+    return 0;
+}
+
+
 
