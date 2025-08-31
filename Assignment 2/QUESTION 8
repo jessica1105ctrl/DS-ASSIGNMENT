@@ -16,8 +16,8 @@ void create(){
     std::cout << "Enter number of elements\n";
     std::cin >> size;
         for(int i = 0; i < size; i++) {
-        std::cout << "Enter element " << i+1<<"\n";
-        std::cin >> Array[i];
+        cout << "Enter element " << i+1<<"\n";
+        cin >> Array[i];
     }
 }
 
@@ -29,5 +29,5 @@ void count_non_duplicates(){ int count=size;
                 break;
             }
         }
-    } std::cout<<"Number of Distinct elements:"<<count;
+    } cout<<"Number of Distinct elements:"<<count;
 }
