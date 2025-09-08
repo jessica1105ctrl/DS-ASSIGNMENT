@@ -24,7 +24,7 @@ int pop(){ if (isEmpty()!=1){
     return input;
 } else return -1;
 }
-void Sorting_A(int Array[],int n){                  //n is array size.
+void Sorting_A(int Array[],int n){                 
     for(int i=0;i<n-1;i++){
         for(int j=0;j<n-1-i;j++)
         {if(Array[j]>Array[j+1]){
