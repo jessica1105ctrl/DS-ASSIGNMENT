@@ -21,13 +21,19 @@ int pop(){ if (isEmpty()!=1){
 } else return -1;
 }
 void nearestSmallerToLeft(int A[],int n)
-{ int G[50];   top = -1;
+{
+    int G[50];  
+     top = -1;
         for(int i=0;i<n;i++){
             while(isEmpty()!=1 &&stack1[top]>=A[i]){ pop();}
-         if(isEmpty()==1){G[i]=-1;}else {G[i]=stack1[top];}
-     push(A[i]); } for(int i=0;i<n;i++){
+         if(isEmpty()==1){G[i]=-1;}
+         else {G[i]=stack1[top];}
+     push(A[i]); } 
+    for(int i=0;i<n;i++)
+    {
         cout<<G[i]<<" ";
-    } }
+    }
+}
     
     
     
