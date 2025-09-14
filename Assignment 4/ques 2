@@ -1,0 +1,79 @@
+#include <iostream>
+int size=50;
+int queue[50];
+int front= -1; 
+int rear=-1;
+
+
+int isFull(){
+    if((rear+1)%size==front){ std::cout<<"Overflow\n" ; 
+    return 1;}
+    else return 0;
+}
+int isEmpty(){
+    if(rear==-1&&front==-1){ std::cout<<"Underflow\n" ; return 1;}else return 0;
+}
+void enqueue(){ int data;
+    if(isFull()==0 ){ if(front==-1 && rear==-1)
+    {front=rear=0;}else
+   { rear=(rear+1)%size; }
+       std::cout<<"Enter:"; std::cin>>data;
+         queue[rear]=data; 
+        
+    } 
+}
+
+void dequeue(){if(isEmpty()==0){int data=queue[front];
+     if(front==rear){
+            front=rear=-1;}else front=(front+1)%size; 
+       std::cout<<"Deleted:"<<data<< "\n";
+}
+}
+
+void display() {
+    if (isEmpty() == 1) {
+        std::cout << "Queue is empty\n";
+    } else {
+        std::cout << "Elements: ";
+        int i=front; while(true) {
+            std::cout << queue[i] << " ";
+            if (i == rear) break;
+            i=(i+1)%size;
+        }
+        std::cout << "\n";
+    }
+}
+
+    void peek() {
+    if (isEmpty() == 1) {
+        std::cout << "Queue is empty\n";
+    } else {
+        std::cout << "First element: " << queue[front] << "\n";
+    }
+}
+int main() {
+    int input;  
+    while (1) { 
+        std::cout << "Press:\n 1:Add \n 2:Remove\n 3:check if empty \n 4:check if full \n 5: display elements\n 6: use peek function \n 7 to exit\n";
+        std::cin >> input;
+        std::cout << "\n";
+             switch(input) {
+            case 1: enqueue();
+            break;
+            case 2: dequeue();
+            break;
+            case 3: isEmpty();
+            break;
+            case 4: isFull();
+            break;
+            case 5: display();
+            break;
+             case 6: peek();
+            break;
+        }
+        if(input == 7) break;
+    }
+    return 0;
+
+} 
+
