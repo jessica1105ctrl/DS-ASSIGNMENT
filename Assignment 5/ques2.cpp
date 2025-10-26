@@ -6,17 +6,20 @@ struct node {
     node* next;
 };
 
-node* createNode(int data) {
+node* createNode(int data) 
+{
     node* temp = new node;
     temp->data = data;
     temp->next = NULL;
     return temp;
 }
 
-int deleteAndCount(node*& head, int key) {
+int deleteAndCount(node*& head, int key)
+{
     int count = 0;
 
-    while (head != NULL && head->data == key) {
+    while (head != NULL && head->data == key)
+        {
         node* temp = head;
         head = head->next;
         delete temp;
@@ -24,8 +27,10 @@ int deleteAndCount(node*& head, int key) {
     }
 
     node* current = head;
-    while (current != NULL && current->next != NULL) {
-        if (current->next->data == key) {
+    while (current != NULL && current->next != NULL)
+        {
+        if (current->next->data == key) 
+        {
             node* temp = current->next;
             current->next = current->next->next;
             delete temp;
