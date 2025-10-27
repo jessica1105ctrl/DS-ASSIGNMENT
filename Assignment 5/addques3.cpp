@@ -1,83 +1,65 @@
 #include <iostream>
 using namespace std;
 
-struct node
-{
-    int data;
-    node* next;
+struct Node {
+    int val;
+    Node* next;
+    Node(int v): val(v), next(NULL) {}
 };
 
-node* createNode(int value) {
-    node* temp=new node;
-    temp->data=value;
-    temp->next=NULL;
-    return temp;
-}
 
-void removeLoop(node* head) {
-    if (head==NULL||head->next==NULL)
-        return;
-
-    node* slow=head;
-    node* fast=head;
-
-    
-    bool loopExists=false;
-    while (fast!=NULL&&fast->next!=NULL) {
-        slow=slow->next;
-        fast=fast->next->next;
-
-        if (slow==fast) {
-            loopExists=true;
-            break;
-        }
-    }
-
-    if (loopExists==false)
-       { return;}
-
-    
-    slow=head;
-    node* prev=fast; 
-
-    while (slow!=fast) {
-        slow=slow->next;
-        prev=fast;
-        fast=fast->next;
-    }
-    prev->next=NULL;
-}
-
-
-void printList(node* head) {
-    node* temp = head;
-    while (temp != NULL) 
-    {
-        cout<<temp->data<<" ";
-        temp=temp->next;
-    }
-    cout<<endl;
-}
-
-int main()
+void removeLoop(Node* head)
 {
-    
-    node* a1=createNode(1);
-    node* a2=createNode(2);
-    node* a3=createNode(3);
-    node* a4=createNode(4);
-    node* a5=createNode(5);
+    if (!head || !head->next) return;
+
+    Node* slow = head;
+    Node* fast = head;
 
     
-    a1->next=a2;
-    a2->next=a3;
-    a3->next=a4;
-    a4->next=a5;
+    while (fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast) break;
+    }
+    if (!fast || !fast->next) return; 
 
     
-    a5->next=a3;
+    slow = head;
+    if (slow == fast) 
+    { 
+        while (fast->next != slow) fast = fast->next;
+        fast->next = NULL;
+        return;
+    }
+    while (slow->next != fast->next) {
+        slow = slow->next;
+        fast = fast->next;
+    }
+    fast->next = NULL;
+}
 
-    removeLoop(a1);
-    printList(a1); 
+void printList(Node* head){
+    Node* p = head;
+    while (p) {
+        cout << p->val;
+        if (p->next) cout << ' ';
+        p = p->next;
+    }
+    cout << '\n';
+}
+
+int main() {
     
+    Node* head = new Node(1);
+    head->next = new Node(7);
+    head->next->next = new Node(3);
+    head->next->next->next = new Node(6);
+
+    Node* last = head;
+    while (last->next) last = last->next;
+    last->next = head->next; 
+
+    removeLoop(head);
+    printList(head);         
+    return 0;
 }
