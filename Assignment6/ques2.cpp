@@ -26,14 +26,17 @@ void display(Node* head){ Node* temp=head;
 
 
 if (head==NULL) 
-      {  std::cout<<"No nodes!\n";} 
+      {  
+          cout<<"No nodes!\n";
+      } 
       else
    {     
 
-do {  std::cout<<temp->data<<"\t";
+do {  
+    cout<<temp->data<<"\t";
     temp=temp->next;
     } while(temp!=head);
-   std::cout<<head->data<<"\n";
+   cout<<head->data<<"\n";
     }
    }
 
