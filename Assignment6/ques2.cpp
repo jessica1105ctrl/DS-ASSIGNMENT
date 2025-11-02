@@ -9,16 +9,20 @@ struct Node{
 Node* head=NULL; 
 Node* current= head;
 
- void create_node(int x,Node* &head,Node* &current){
+ void create_node(int x,Node* &head,Node* &current)
+{
      Node* NewNode=new Node; 
      NewNode->data=x;
      NewNode->next=NULL;
      
      if(head==NULL){
          head=NewNode;
-    current=head; } else 
-     {current->next=NewNode; 
-        current=current->next;  }
+    current=head; } 
+     else 
+     {
+         current->next=NewNode; 
+        current=current->next; 
+     }
       
       }
 
@@ -32,13 +36,15 @@ if (head==NULL)
       else
    {     
 
-do {  
+   do 
+   {  
     cout<<temp->data<<"\t";
     temp=temp->next;
-    } while(temp!=head);
+    } 
+   while(temp!=head);
    cout<<head->data<<"\n";
     }
-   }
+  }
 
     
 int main() { create_node(20, head, current);
